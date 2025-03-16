@@ -40,3 +40,14 @@ nav ul li a {
     font-weight: bold;
     border-radius: 5px;
 }
+
+.social-icons i {
+    font-size: 40px;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons i:hover {
+    transform: scale(1.2);
+    color: #ffcc00; /* Change to any color you like */
+}
