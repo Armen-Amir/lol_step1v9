@@ -5,6 +5,18 @@ body {
     text-align: center;
     background-color: #111;
     color: white;
+    min-height: 100vh;
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 header {
@@ -50,4 +62,167 @@ nav ul li a {
 .social-icons i:hover {
     transform: scale(1.2);
     color: #ffcc00; /* Change to any color you like */
+}
+
+footer {
+    flex-shrink: 0;
+    background: #222;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.coaching-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.coaching-services, .payment-section {
+    flex: 1;
+    min-width: 0;
+}
+
+.service-card {
+    background: #222;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.service-card h2 {
+    color: #ffcc00;
+    margin-top: 0;
+}
+
+.service-card .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffcc00;
+    margin: 0.5rem 0;
+}
+
+.payment-card {
+    background: #222;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.paypal-section, .booking-section {
+    margin-bottom: 2rem;
+}
+
+.qr-code-placeholder {
+    background: #333;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr-code {
+    max-width: 200px;
+    height: auto;
+}
+
+.paypal-btn, .booking-btn {
+    display: inline-block;
+    background: #0070ba;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.paypal-btn:hover {
+    background: #005ea6;
+}
+
+.booking-btn {
+    background: #ffcc00;
+    color: black;
+}
+
+.booking-btn:hover {
+    background: #e6b800;
+}
+
+@media (max-width: 768px) {
+    .coaching-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .coaching-services, .payment-section {
+        width: 100%;
+    }
+}
+
+.instructions-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.instructions-card {
+    background: #222;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.instructions-card h1 {
+    color: #ffcc00;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.instructions-card p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.instructions-card ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.instructions-card li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.instructions-card strong {
+    color: #ffcc00;
+}
+
+.instructions-card a {
+    color: #ffcc00;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.instructions-card a:hover {
+    color: #e6b800;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .instructions-container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+    
+    .instructions-card {
+        padding: 1.5rem;
+    }
 }
