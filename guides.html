@@ -3,44 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Streamer Name - Home</title>
+    <title>Tryndamere Matchup Guide - Step1v9</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="guides.html">Guides</a></li>
-                <li><a href="coaching.html">Coaching</a></li>
-                <li><a href="#">Socials</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="page-container">
+        <!-- Rune tree will be inserted here by JavaScript -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="guides.html">Guides</a></li>
+                    <li><a href="coaching.html">Coaching</a></li>
+                    <li><a href="#">Socials</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <footer>
-        <div class="social-icons">
-            <a href="https://www.twitch.tv/step1v9/" target="_blank">
-                <i class="fab fa-twitch"></i>
-            </a>
-            <a href="https://www.youtube.com/@Step1v9" target="_blank">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="https://instagram.com/step1v9" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://tiktok.com/@step1v9" target="_blank">
-                <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="https://x.com/step1v9" target="_blank">
-                <i class="fab fa-x-twitter"></i>
-            </a>
-            <a href="https://discord.com/invite/HPKZWNSEvD" target="_blank">
-                <i class="fab fa-discord"></i>
-            </a>
-        </div>
-    </footer>
-    
+        <main>
+            <div class="guides-container">
+                <h1>Tryndamere Matchup Guide</h1>
+                <div class="search-container">
+                    <input type="text" id="championSearch" placeholder="Search champions..." class="search-input">
+                </div>
+                <div class="table-container">
+                    <table class="matchup-table">
+                        <thead>
+                            <tr>
+                                <th>Champion</th>
+                                <th>Threat Level</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Champion rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="social-icons">
+                <a href="https://www.twitch.tv/step1v9/" target="_blank">
+                    <i class="fab fa-twitch"></i>
+                </a>
+                <a href="https://www.youtube.com/@Step1v9" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://instagram.com/step1v9" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://tiktok.com/@step1v9" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://x.com/step1v9" target="_blank">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="https://discord.com/invite/HPKZWNSEvD" target="_blank">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="runes.js"></script>
+    <script src="champions.js"></script>
+    <script>
+        document.getElementById('championSearch').addEventListener('input', function(e) {
+            const searchText = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('.matchup-table tbody tr');
+            
+            rows.forEach(row => {
+                const championName = row.querySelector('.champion-icon span').textContent.toLowerCase();
+                if (championName.includes(searchText)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
