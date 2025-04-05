@@ -1,213 +1,75 @@
-const champions = [
-    { name: 'Aatrox', threat: 'medium' },
-    { name: 'Ahri', threat: 'medium' },
-    { name: 'Akali', threat: 'hard' },
-    { name: 'Akshan', threat: 'medium' },
-    { name: 'Alistar', threat: 'easy' },
-    { name: 'Amumu', threat: 'easy' },
-    { name: 'Anivia', threat: 'hard' },
-    { name: 'Annie', threat: 'medium' },
-    { name: 'Aphelios', threat: 'easy' },
-    { name: 'Ashe', threat: 'easy' },
-    { name: 'Aurelion Sol', threat: 'medium' },
-    { name: 'Azir', threat: 'hard' },
-    { name: 'Bard', threat: 'easy' },
-    { name: 'Bel\'Veth', threat: 'medium' },
-    { name: 'Blitzcrank', threat: 'easy' },
-    { name: 'Brand', threat: 'medium' },
-    { name: 'Braum', threat: 'easy' },
-    { name: 'Briar', threat: 'medium' },
-    { name: 'Caitlyn', threat: 'easy' },
-    { name: 'Camille', threat: 'hard' },
-    { name: 'Cassiopeia', threat: 'hard' },
-    { name: 'Cho\'Gath', threat: 'medium' },
-    { name: 'Corki', threat: 'easy' },
-    { name: 'Darius', threat: 'hard' },
-    { name: 'Diana', threat: 'medium' },
-    { name: 'Draven', threat: 'easy' },
-    { name: 'Dr. Mundo', threat: 'easy' },
-    { name: 'Ekko', threat: 'medium' },
-    { name: 'Elise', threat: 'medium' },
-    { name: 'Evelynn', threat: 'medium' },
-    { name: 'Ezreal', threat: 'easy' },
-    { name: 'Fiddlesticks', threat: 'medium' },
-    { name: 'Fiora', threat: 'hard' },
-    { name: 'Fizz', threat: 'hard' },
-    { name: 'Galio', threat: 'medium' },
-    { name: 'Gangplank', threat: 'hard' },
-    { name: 'Garen', threat: 'easy' },
-    { name: 'Gnar', threat: 'medium' },
-    { name: 'Gragas', threat: 'medium' },
-    { name: 'Graves', threat: 'medium' },
-    { name: 'Gwen', threat: 'medium' },
-    { name: 'Hecarim', threat: 'medium' },
-    { name: 'Heimerdinger', threat: 'medium' },
-    { name: 'Illaoi', threat: 'hard' },
-    { name: 'Irelia', threat: 'hard' },
-    { name: 'Ivern', threat: 'easy' },
-    { name: 'Janna', threat: 'easy' },
-    { name: 'Jarvan IV', threat: 'medium' },
-    { name: 'Jax', threat: 'hard' },
-    { name: 'Jayce', threat: 'hard' },
-    { name: 'Jhin', threat: 'easy' },
-    { name: 'Jinx', threat: 'easy' },
-    { name: 'K\'Sante', threat: 'medium' },
-    { name: 'Kai\'Sa', threat: 'easy' },
-    { name: 'Kalista', threat: 'easy' },
-    { name: 'Karma', threat: 'medium' },
-    { name: 'Karthus', threat: 'medium' },
-    { name: 'Kassadin', threat: 'medium' },
-    { name: 'Katarina', threat: 'medium' },
-    { name: 'Kayle', threat: 'medium' },
-    { name: 'Kayn', threat: 'medium' },
-    { name: 'Kennen', threat: 'hard' },
-    { name: 'Kha\'Zix', threat: 'medium' },
-    { name: 'Kindred', threat: 'medium' },
-    { name: 'Kled', threat: 'medium' },
-    { name: 'Kog\'Maw', threat: 'easy' },
-    { name: 'LeBlanc', threat: 'hard' },
-    { name: 'Lee Sin', threat: 'medium' },
-    { name: 'Leona', threat: 'easy' },
-    { name: 'Lillia', threat: 'medium' },
-    { name: 'Lissandra', threat: 'medium' },
-    { name: 'Lucian', threat: 'easy' },
-    { name: 'Lulu', threat: 'easy' },
-    { name: 'Lux', threat: 'medium' },
-    { name: 'Malphite', threat: 'medium' },
-    { name: 'Malzahar', threat: 'medium' },
-    { name: 'Maokai', threat: 'medium' },
-    { name: 'Master Yi', threat: 'easy' },
-    { name: 'Milio', threat: 'easy' },
-    { name: 'Miss Fortune', threat: 'easy' },
-    { name: 'Mordekaiser', threat: 'hard' },
-    { name: 'Morgana', threat: 'medium' },
-    { name: 'Naafiri', threat: 'medium' },
-    { name: 'Nami', threat: 'easy' },
-    { name: 'Nasus', threat: 'medium' },
-    { name: 'Nautilus', threat: 'easy' },
-    { name: 'Neeko', threat: 'medium' },
-    { name: 'Nidalee', threat: 'medium' },
-    { name: 'Nilah', threat: 'easy' },
-    { name: 'Nocturne', threat: 'medium' },
-    { name: 'Nunu & Willump', threat: 'medium' },
-    { name: 'Olaf', threat: 'medium' },
-    { name: 'Orianna', threat: 'medium' },
-    { name: 'Ornn', threat: 'medium' },
-    { name: 'Pantheon', threat: 'medium' },
-    { name: 'Poppy', threat: 'hard' },
-    { name: 'Pyke', threat: 'medium' },
-    { name: 'Qiyana', threat: 'medium' },
-    { name: 'Quinn', threat: 'hard' },
-    { name: 'Rakan', threat: 'easy' },
-    { name: 'Rammus', threat: 'medium' },
-    { name: 'Rek\'Sai', threat: 'medium' },
-    { name: 'Rell', threat: 'easy' },
-    { name: 'Renata Glasc', threat: 'easy' },
-    { name: 'Renekton', threat: 'hard' },
-    { name: 'Rengar', threat: 'medium' },
-    { name: 'Riven', threat: 'hard' },
-    { name: 'Rumble', threat: 'medium' },
-    { name: 'Ryze', threat: 'medium' },
-    { name: 'Samira', threat: 'easy' },
-    { name: 'Sejuani', threat: 'medium' },
-    { name: 'Senna', threat: 'easy' },
-    { name: 'Seraphine', threat: 'easy' },
-    { name: 'Sett', threat: 'medium' },
-    { name: 'Shaco', threat: 'medium' },
-    { name: 'Shen', threat: 'medium' },
-    { name: 'Shyvana', threat: 'medium' },
-    { name: 'Singed', threat: 'medium' },
-    { name: 'Sion', threat: 'medium' },
-    { name: 'Sivir', threat: 'easy' },
-    { name: 'Skarner', threat: 'easy' },
-    { name: 'Sona', threat: 'easy' },
-    { name: 'Soraka', threat: 'easy' },
-    { name: 'Swain', threat: 'medium' },
-    { name: 'Sylas', threat: 'medium' },
-    { name: 'Syndra', threat: 'medium' },
-    { name: 'Tahm Kench', threat: 'medium' },
-    { name: 'Taliyah', threat: 'medium' },
-    { name: 'Talon', threat: 'medium' },
-    { name: 'Taric', threat: 'easy' },
-    { name: 'Teemo', threat: 'hard' },
-    { name: 'Thresh', threat: 'medium' },
-    { name: 'Tristana', threat: 'easy' },
-    { name: 'Trundle', threat: 'hard' },
-    { name: 'Twisted Fate', threat: 'medium' },
-    { name: 'Twitch', threat: 'easy' },
-    { name: 'Udyr', threat: 'medium' },
-    { name: 'Urgot', threat: 'medium' },
-    { name: 'Varus', threat: 'easy' },
-    { name: 'Vayne', threat: 'easy' },
-    { name: 'Veigar', threat: 'medium' },
-    { name: 'Vel\'Koz', threat: 'medium' },
-    { name: 'Vex', threat: 'medium' },
-    { name: 'Vi', threat: 'medium' },
-    { name: 'Viego', threat: 'medium' },
-    { name: 'Viktor', threat: 'medium' },
-    { name: 'Vladimir', threat: 'medium' },
-    { name: 'Volibear', threat: 'medium' },
-    { name: 'Warwick', threat: 'medium' },
-    { name: 'Wukong', threat: 'medium' },
-    { name: 'Xayah', threat: 'easy' },
-    { name: 'Xerath', threat: 'medium' },
-    { name: 'Xin Zhao', threat: 'medium' },
-    { name: 'Yasuo', threat: 'medium' },
-    { name: 'Yone', threat: 'medium' },
-    { name: 'Yorick', threat: 'medium' },
-    { name: 'Yuumi', threat: 'easy' },
-    { name: 'Zac', threat: 'medium' },
-    { name: 'Zed', threat: 'medium' },
-    { name: 'Zeri', threat: 'easy' },
-    { name: 'Ziggs', threat: 'medium' },
-    { name: 'Zilean', threat: 'easy' },
-    { name: 'Zoe', threat: 'medium' },
-    { name: 'Zyra', threat: 'medium' }
-];
-
-function getChampionImageName(championName) {
-    // Special cases for champion names that don't match their image names
-    const specialCases = {
-        'Bel\'Veth': 'Belveth',
-        'Cho\'Gath': 'Chogath',
-        'Dr. Mundo': 'DrMundo',
-        'Kai\'Sa': 'Kaisa',
-        'Kha\'Zix': 'Khazix',
-        'LeBlanc': 'Leblanc',
-        'Nunu & Willump': 'Nunu',
-        'Renata Glasc': 'Renata',
-        'Vel\'Koz': 'Velkoz',
-        'Wukong': 'MonkeyKing'
-    };
-
-    return specialCases[championName] || championName.replace(/['\s.]/g, '');
+// Function to parse CSV data
+function parseCSV(csv) {
+    const lines = csv.split('\n');
+    const headers = lines[0].split(',');
+    const result = [];
+    
+    for (let i = 1; i < lines.length; i++) {
+        if (!lines[i].trim()) continue;
+        
+        const obj = {};
+        let currentValue = '';
+        let isInQuotes = false;
+        let currentIndex = 0;
+        
+        for (let char of lines[i]) {
+            if (char === '"') {
+                isInQuotes = !isInQuotes;
+            } else if (char === ',' && !isInQuotes) {
+                obj[headers[currentIndex].trim()] = currentValue.trim();
+                currentValue = '';
+                currentIndex++;
+            } else {
+                currentValue += char;
+            }
+        }
+        obj[headers[currentIndex].trim()] = currentValue.trim();
+        result.push(obj);
+    }
+    
+    return result;
 }
 
-function populateTable() {
+// Function to fetch and load matchup data
+async function loadMatchupData() {
+    try {
+        const response = await fetch('matchups.csv');
+        const csvData = await response.text();
+        return parseCSV(csvData);
+    } catch (error) {
+        console.error('Error loading matchup data:', error);
+        return [];
+    }
+}
+
+function populateTable(matchups) {
     const tbody = document.querySelector('.matchup-table tbody');
     tbody.innerHTML = ''; // Clear existing rows
 
-    champions.forEach(champion => {
+    matchups.forEach(matchup => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>
                 <div class="champion-icon">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/${getChampionImageName(champion.name)}.png" 
-                         alt="${champion.name}"
+                    <img src="${matchup.icon_url}" 
+                         alt="${matchup.champion}"
                          onerror="this.src='assets/champions/default.png'">
-                    <span>${champion.name}</span>
+                    <span>${matchup.champion}</span>
                 </div>
             </td>
             <td>
                 <div class="threat-level">
-                    <span class="threat-${champion.threat}">${champion.threat.charAt(0).toUpperCase() + champion.threat.slice(1)}</span>
+                    <span class="threat-${matchup.threat_level}">${matchup.threat_level.charAt(0).toUpperCase() + matchup.threat_level.slice(1)}</span>
                 </div>
             </td>
-            <td>Matchup notes will go here...</td>
+            <td>${matchup.notes}</td>
         `;
         tbody.appendChild(row);
     });
 }
 
-// Call the function when the page loads
-document.addEventListener('DOMContentLoaded', populateTable); 
+// Initialize the table when the page loads
+document.addEventListener('DOMContentLoaded', async () => {
+    const matchups = await loadMatchupData();
+    populateTable(matchups);
+}); 
