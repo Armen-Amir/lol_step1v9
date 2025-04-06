@@ -3,35 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Streamer Name - Home</title>
+    <title>Step1v9 - Challenger Tryndamere</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <div class="page-container">
         <header>
+            <div class="brand">
+                <img src="assets/step.png" alt="Tryndamere" class="trynd-icon">
+                <span class="brand-name">step1v9</span>
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="guides.html">Guides</a></li>
                     <li><a href="tryndamere-build.html">Build</a></li>
+                    <li><a href="guides.html">Guides</a></li>
                     <li><a href="coaching.html">Coaching</a></li>
                     <li><a href="#">Socials</a></li>
+                    <li><a href="https://twitch.tv/step1v9" target="_blank" class="watch-live">
+                        <i class="fab fa-twitch"></i> Watch Live
+                    </a></li>
                 </ul>
             </nav>
         </header>
 
         <main>
             <section class="hero">
-                <h1>Welcome to Streamer Name's Website</h1>
-                <p>Master Tryndamere and dominate the Rift!</p>
-                <a href="https://twitch.tv/YOUR_STREAMER_NAME" target="_blank" class="btn">Watch Live</a>
+                <div id="twitch-embed"></div>
+
+                <!-- Load the Twitch embed JavaScript file -->
+                <script src="https://embed.twitch.tv/embed/v1.js"></script>
+            
+                <!-- Create a Twitch.Embed object -->
+                <script type="text/javascript">
+                  new Twitch.Embed("twitch-embed", {
+                    width: 1200,
+                    height: 675,
+                    channel: "step1v9",
+                    // Only needed if this page is going to be embedded on other websites
+                    parent: ["localhost", "armen-amir.github.io"]
+                  });
+                </script>
             </section>
 
-            <section class="about">
-                <h2>About the Streamer</h2>
-                <p>Short bio about their achievements, rank, and why they love Tryndamere.</p>
-            </section>
         </main>
 
         <footer>
