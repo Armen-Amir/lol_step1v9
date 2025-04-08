@@ -43,7 +43,7 @@
             background-color: #c89b3c;
             color: #091428;
             padding: 15px;
-            text-align: left;
+            text-align: center;
         }
         
         .matchup-table td {
@@ -69,6 +69,7 @@
         
         .threat-level {
             font-weight: bold;
+            text-align: center;
         }
         
         .threat-easy {
@@ -81,6 +82,19 @@
         
         .threat-hard {
             color: #e84057;
+        }
+        
+        /* New threat level styles */
+        .threat-extreme, .threat-major {
+            color: #e84057; /* Red for extreme/major threats */
+        }
+        
+        .threat-even {
+            color: #f0e6d2; /* Yellow for even matchups */
+        }
+        
+        .threat-minor {
+            color: #0ac8b9; /* Green for minor threats */
         }
         
         .build-link {

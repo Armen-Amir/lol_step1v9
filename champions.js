@@ -33,7 +33,7 @@ function parseCSV(csv) {
 // Function to fetch and load matchup data
 async function loadMatchupData() {
     try {
-        const response = await fetch('matchups.csv');
+        const response = await fetch('./mobafire-scrape/matchup_df.csv');
         const csvData = await response.text();
         return parseCSV(csvData);
     } catch (error) {
@@ -47,6 +47,9 @@ function populateTable(matchups) {
     tbody.innerHTML = ''; // Clear existing rows
 
     matchups.forEach(matchup => {
+        // Convert threat level to lowercase for consistency
+        const threatLevel = matchup.threat_level.toLowerCase();
+        
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>
@@ -59,7 +62,7 @@ function populateTable(matchups) {
             </td>
             <td>
                 <div class="threat-level">
-                    <span class="threat-${matchup.threat_level}">${matchup.threat_level.charAt(0).toUpperCase() + matchup.threat_level.slice(1)}</span>
+                    <span class="threat-${threatLevel}">${matchup.threat_level}</span>
                 </div>
             </td>
             <td>${matchup.notes}</td>
